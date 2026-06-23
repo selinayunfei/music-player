@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player Design</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -23,13 +23,14 @@
             </div>
         </nav>
         
-        <img src="media/toro.jpg" class="song-img">
-        <h1>Drag Path</h1>
-        <p>Twenty One Pilots</p>
+        <img src="media/vinyl.jpg" class="song-img">
 
-        <audio id="song">
-            <source src="media/Drag Path.mp3" type = "audio/mpeg">
-        </audio>
+        <div class="moving-container">
+            <p class = "moving-title"><b id="title"></b>&emsp;&emsp;<span id="artist"></span></p>
+        </div>
+        
+        <audio id="song-file"></audio>
+
         <input type="range" value = "0" id = "progress">
 
         <div class="controls">
@@ -47,8 +48,17 @@
 
     <script>
     let progress = document.getElementById("progress");
-    let song = document.getElementById("song");
+
+    let song = document.getElementById("song-file");
+    song.src=localStorage.getItem("file");
+
     let ctrlIcon = document.getElementById("ctrlIcon");
+
+    document.getElementById("title").textContent=
+        localStorage.getItem("song");
+
+    document.getElementById("artist").textContent=
+        localStorage.getItem("artist");
 
     song.onloadedmetadata = function(){
         progress.max = song.duration;
@@ -68,17 +78,12 @@
         }
     }
 
-    if(song.play()){
-        setInterval(()=>{
-            progress.value = song.currentTime;
-        },500);
-    }
+    song.addEventListener("timeupdate", function(){
+        progress.value = song.currentTime;
+    });
 
-    progress.onchange = function(){
-        song.play();
+    progress.oninput = function(){
         song.currentTime = progress.value;
-        ctrlIcon.innerHTML=
-                '<i class="fa-solid fa-pause"></i>';
     }
 
     </script>

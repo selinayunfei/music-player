@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>home page</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -33,43 +33,46 @@
                     </div>
                     
                     <p>playlist</p>
-                    <div class="rectangle">
+
+
+                        <div class="rectangle" onclick="openSong('Drag Path','Twenty One Pilots','media/Drag Path.mp3')">
+                            <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
+
+                            <div class="song-info">
+                                <p class = "song-title">Drag path</p>
+                                <p class = "artist-name">Twenty One Pilots</p>
+                            </div>
+                        </div>
+
+                    <div class="rectangle" onclick="openSong('Let Down', 'Radiohead','media/Let Down.mp3')">
                         <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
                         <div class="song-info">
-                            <p class = "song-title">drag path</p>
-                            <p class = "artist-name">twenty one pilots</p>
+                            <p class = "song-title">Let Down</p>
+                            <p class = "artist-name">Radiohead</p>
                         </div>
                     </div>
 
-                    <div class="rectangle">
+                    <div class="rectangle" onclick="openSong('Catch Catch', 'Yena','media/Catch Catch.mp3')">
                         <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
                         <div class="song-info">
-                            <p class = "song-title">let down</p>
-                            <p class = "artist-name">radiohead</p>
+                            <p class = "song-title">Catch Catch</p>
+                            <p class = "artist-name">Yena</p>
                         </div>
                     </div>
 
-                    <div class="rectangle">
+                    <div class="rectangle" onclick="openSong('Thats A No No', 'ITZY','media/Thats A No No.mp3')">
                         <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
                         <div class="song-info">
-                            <p class = "song-title">catch catch</p>
-                            <p class = "artist-name">yena</p>
+                            <p class = "song-title">That's A No No</p>
+                            <p class = "artist-name">ITZY</p>
                         </div>
                     </div>
 
-                    <div class="rectangle">
+                    <div class="rectangle" onclick="openSong('Bleed', 'Malcolm Todd, Omar Apollo','media/Bleed.mp3')">
                         <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
                         <div class="song-info">
-                            <p class = "song-title">that's a no no</p>
-                            <p class = "artist-name">itzy</p>
-                        </div>
-                    </div>
-
-                    <div class="rectangle">
-                        <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
-                        <div class="song-info">
-                            <p class = "song-title">bleed</p>
-                            <p class = "artist-name">malcolm todd, omar apollo</p>
+                            <p class = "song-title">Bleed</p>
+                            <p class = "artist-name">Malcolm Todd, Omar Apollo</p>
                         </div>
                     </div>
 
@@ -77,5 +80,17 @@
             </div>
 
         </div>
+
+
+    <script>
+        function openSong(title, artist, file){
+            localStorage.setItem("song", title);  
+            localStorage.setItem("artist", artist); 
+            localStorage.setItem("file",file)
+            
+            window.location.href ="musicplayer.html";
+        }
+    </script>   
+
     </body>
 </html>

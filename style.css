@@ -51,7 +51,7 @@ nav .circle{
     margin-top: 20px;
 }
 .music-player p{
-    font-size: 14px;
+    font-size: 18px;
     color: #333;
 }
 
@@ -63,6 +63,7 @@ nav .circle{
     border-radius: 4px;
     cursor: pointer;
     margin: 40px 0;
+    margin-top: 35px;
 }
 #progress::-webkit-slider-thumb{
     -webkit-appearance: none;
@@ -77,6 +78,7 @@ nav .circle{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0px;
 }
 .controls div{
     width: 60px;
@@ -95,6 +97,26 @@ nav .circle{
     transform: scale(1.5);
     background: #f53192;
     color: #fff;
+}
+
+.moving-container{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.moving-title{
+    display: inline-block;
+    margin-top:35px;
+    padding-left: 100%;
+
+    animation: title-animation 15s linear infinite;
+}
+
+
+@keyframes title-animation{
+    0% { transform: translate3d(0,0,0);}
+    100% { transform: translate3d(-100%,0,0);}
+
 }
 
 /* for homepage */
@@ -146,6 +168,7 @@ nav .circle{
     margin-bottom: 10px;
 
     display: flex;
+    cursor: pointer;
 }
 
 .icon{
