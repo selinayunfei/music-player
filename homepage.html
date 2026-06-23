@@ -35,7 +35,7 @@
                     <p>playlist</p>
 
 
-                        <div class="rectangle" onclick="openSong('Drag Path','Twenty One Pilots','media/Drag Path.mp3')">
+                        <div class="rectangle" onclick="openSong(0)">
                             <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
 
                             <div class="song-info">
@@ -44,7 +44,7 @@
                             </div>
                         </div>
 
-                    <div class="rectangle" onclick="openSong('Let Down', 'Radiohead','media/Let Down.mp3')">
+                    <div class="rectangle" onclick="openSong(1)">
                         <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
                         <div class="song-info">
                             <p class = "song-title">Let Down</p>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
 
-                    <div class="rectangle" onclick="openSong('Catch Catch', 'Yena','media/Catch Catch.mp3')">
+                    <div class="rectangle" onclick="openSong(2)">
                         <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
                         <div class="song-info">
                             <p class = "song-title">Catch Catch</p>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
 
-                    <div class="rectangle" onclick="openSong('Thats A No No', 'ITZY','media/Thats A No No.mp3')">
+                    <div class="rectangle" onclick="openSong(3)">
                         <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
                         <div class="song-info">
                             <p class = "song-title">That's A No No</p>
@@ -68,7 +68,7 @@
                         </div>
                     </div>
 
-                    <div class="rectangle" onclick="openSong('Bleed', 'Malcolm Todd, Omar Apollo','media/Bleed.mp3')">
+                    <div class="rectangle" onclick="openSong(4)">
                         <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
                         <div class="song-info">
                             <p class = "song-title">Bleed</p>
@@ -83,10 +83,8 @@
 
 
     <script>
-        function openSong(title, artist, file){
-            localStorage.setItem("song", title);  
-            localStorage.setItem("artist", artist); 
-            localStorage.setItem("file",file)
+        function openSong(index){
+            localStorage.setItem("index", index)
             
             window.location.href ="musicplayer.html";
         }

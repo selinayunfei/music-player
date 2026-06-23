@@ -34,31 +34,80 @@
         <input type="range" value = "0" id = "progress">
 
         <div class="controls">
-            <div><i class="fa-solid fa-backward"></i></div>
+            <div onclick="previousSong()">
+                <i class="fa-solid fa-backward"></i>
+            </div>
+
             <div onclick = "playPause()">
                 <span id="ctrlIcon">
                     <i class ="fa-solid fa-play"></i>
                 </span>
             </div>
-            <div><i class="fa-solid fa-forward"></i></div>
+
+            <div onclick="nextSong()">
+                <i class="fa-solid fa-forward"></i>
+            </div>
         </div>
 
         </div>
     </div>
 
     <script>
+    const songs = [
+    {
+        title: "Drag Path",
+        artist: "Twenty One Pilots",
+        file: "media/Drag Path.mp3"
+    },
+
+    {
+        title: "Let Down",
+        artist: "Radiohead",
+        file: "media/Let Down.mp3"
+    },
+
+    {
+        title: "Catch Catch",
+        artist: "Yena",
+        file: "media/Catch Catch.mp3"
+    },
+
+    {
+        title: "That's A No No",
+        artist: "ITZY",
+        file: "media/Thats A No No.mp3"
+    },
+
+    {
+        title: "Bleed",
+        artist: "Malcolm Todd, Omar Apollo",
+        file: "media/Bleed.mp3"
+    }
+    ];
+
     let progress = document.getElementById("progress");
 
+    let current = Number(localStorage.getItem("index")) || 0;
+
     let song = document.getElementById("song-file");
-    song.src=localStorage.getItem("file");
 
     let ctrlIcon = document.getElementById("ctrlIcon");
 
-    document.getElementById("title").textContent=
-        localStorage.getItem("song");
+    function loadSong(){
+        song.src=songs[current].file;
 
-    document.getElementById("artist").textContent=
-        localStorage.getItem("artist");
+        document.getElementById("title").textContent=
+            songs[current].title;
+
+        document.getElementById("artist").textContent=
+            songs[current].artist;
+
+        
+        song.load();
+        ctrlIcon.innerHTML = '<i class="fa-solid fa-play"></i>';
+    }
+
+    loadSong();
 
     song.onloadedmetadata = function(){
         progress.max = song.duration;
@@ -76,6 +125,38 @@
             ctrlIcon.innerHTML=
                 '<i class="fa-solid fa-play"></i>';
         }
+    }
+
+    function previousSong(){
+        current--;
+        
+        if(current<0){
+            current =
+                songs.length -1; 
+        }
+
+        localStorage.setItem("index",current);
+
+        loadSong();
+        song.play();
+        ctrlIcon.innerHTML =
+        '<i class="fa-solid fa-pause"></i>';
+    }
+
+    function nextSong(){
+        current++;
+
+        if(current >= songs.length){
+            current = 0;
+        }
+
+        localStorage.setItem("index",current);
+
+        loadSong();
+        song.play();
+        ctrlIcon.innerHTML =
+        '<i class="fa-solid fa-pause"></i>';
+
     }
 
     song.addEventListener("timeupdate", function(){
