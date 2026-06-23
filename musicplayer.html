@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player Design</title>
+    <title> music !</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://kit.fontawesome.com/13dbc08f81.js" crossorigin="anonymous"></script>
@@ -22,8 +22,10 @@
                 <i class="fa-solid fa-bars"></i>
             </div>
         </nav>
-        
+
         <img src="media/vinyl.jpg" class="song-img">
+        <img id="cover-file" class="album-img">
+
 
         <div class="moving-container">
             <p class = "moving-title"><b id="title"></b>&emsp;&emsp;<span id="artist"></span></p>
@@ -57,31 +59,36 @@
     {
         title: "Drag Path",
         artist: "Twenty One Pilots",
-        file: "media/Drag Path.mp3"
+        file: "media/Drag Path.mp3",
+        cover: "media/covers/dragpath cover.png"
     },
 
     {
         title: "Let Down",
         artist: "Radiohead",
-        file: "media/Let Down.mp3"
+        file: "media/Let Down.mp3",
+        cover: "media/covers/letdown cover.png"
     },
 
     {
         title: "Catch Catch",
         artist: "Yena",
-        file: "media/Catch Catch.mp3"
+        file: "media/Catch Catch.mp3",
+        cover: "media/covers/catchcatch cover.png"
     },
 
     {
         title: "That's A No No",
         artist: "ITZY",
-        file: "media/Thats A No No.mp3"
+        file: "media/Thats A No No.mp3",
+        cover: "media/covers/nono cover.png"
     },
 
     {
         title: "Bleed",
         artist: "Malcolm Todd, Omar Apollo",
-        file: "media/Bleed.mp3"
+        file: "media/Bleed.mp3",
+        cover: "media/covers/bleed cover.png"
     }
     ];
 
@@ -102,7 +109,9 @@
         document.getElementById("artist").textContent=
             songs[current].artist;
 
-        
+        document.getElementById("cover-file").src=
+            songs[current].cover;
+
         song.load();
         ctrlIcon.innerHTML = '<i class="fa-solid fa-play"></i>';
     }

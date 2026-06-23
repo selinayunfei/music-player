@@ -1,9 +1,26 @@
+@font-face{
+    font-family:'Merchant Copy';
+    src:url('Merchant Copy.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face{
+    font-family: 'whimsy';
+    src: url('RASCAL__.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Merchant Copy', sans-serif;
     box-sizing: border-box;
 }
+
 .container{
     width: 100%;
     height: 100vh;
@@ -42,6 +59,11 @@ nav .circle{
     border-radius: 50%;
     border: 8px solid #fff;
     box-shadow: 0 5px 10px rgba(255,26, 26, 0.22);
+}
+
+.album-img{
+    width:100px;
+    margin-left: -70px;
 }
 
 .music-player h1{
@@ -108,6 +130,7 @@ nav .circle{
     display: inline-block;
     margin-top:35px;
     padding-left: 100%;
+    /* why is font size not changing? font-size: 25px; */
 
     animation: title-animation 15s linear infinite;
 }
@@ -127,6 +150,24 @@ nav .circle{
     padding: 25px 35px;
 }
 
+.top{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.custom-font{
+    font-family: 'whimsy', sans-serif;
+    font-size: 35px;
+    color:#9e0652;
+}
+
+.pfp{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
 .music-home-page h1{
     font-size: 20px;
     font-weight: 400;
@@ -142,8 +183,15 @@ nav .circle{
 .artist-img{
     width: 64px;
     border-radius: 50%;
-    border: 8px solid #fff;
+    border: 4px solid #fff;
     box-shadow: 0 5px 10px rgba(255,26, 26, 0.22);
+
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.artist-img:hover{
+    transform: scale(1.15);
 }
 
 .column{
@@ -163,12 +211,20 @@ nav .circle{
 
     background-color: #EFFBB9;
     border-radius:15px;
+    box-shadow: 0 5px 10px rgba(255,26, 26, 0.22);
 
     padding: 20px;
     margin-bottom: 10px;
 
     display: flex;
     cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+.rectangle:hover{
+    background-color: #dde874;
+    color: white;
 }
 
 .icon{
@@ -187,13 +243,13 @@ nav .circle{
 }
 
 .song-title{
-    font-size: 15px;
+    font-size: 25px;
     margin-top:-17px;
     /*margin-left: 30px;
     margin-bottom: 3px;*/
 }
 .artist-name{
-    font-size: 10px;
+    font-size: 15px;
     margin-top: -19px;
     /*
     margin-left: 30px;
