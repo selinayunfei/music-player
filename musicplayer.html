@@ -23,8 +23,10 @@
             </div>
         </nav>
 
-        <img src="media/vinyl.jpg" class="song-img">
-        <img id="cover-file" class="album-img">
+        <div class="record-conatiner">
+            <img src="media/vinyl.jpg" id="vinyl" class="song-img">
+            <img id="cover-file" class="album-img">
+        </div>
 
 
         <div class="moving-container">
@@ -99,6 +101,7 @@
     let song = document.getElementById("song-file");
 
     let ctrlIcon = document.getElementById("ctrlIcon");
+    const disc = document.getElementById("vinyl");
 
     function loadSong(){
         song.src=songs[current].file;
@@ -128,11 +131,13 @@
             song.play();
             ctrlIcon.innerHTML=
                 '<i class="fa-solid fa-pause"></i>';
+                disc.classList.add('is-spinning');
         }
         else{
             song.pause();
             ctrlIcon.innerHTML=
                 '<i class="fa-solid fa-play"></i>';
+                disc.classList.remove('is-spinning');
         }
     }
 

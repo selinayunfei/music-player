@@ -54,17 +54,47 @@ nav .circle{
     box-shadow: 0 5px 10px rgba(255,26, 26, 0.22);
 }
 
+.record-container{
+    position: relative;
+    margin: auto;
+}
+
 .song-img{
-    width: 220px;
+    width: 205px;
+    margin-left: 90px;
+    margin-top: 8px;
+    
     border-radius: 50%;
     border: 8px solid #fff;
     box-shadow: 0 5px 10px rgba(255,26, 26, 0.22);
+
+    z-index:1;
+}
+
+.is-spinning{
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
 
 .album-img{
-    width:100px;
-    margin-left: -70px;
+    width:280px;
+
+    position: absolute;
+    top: 21%;
+    left: 43%;
+
+    margin-left: -80px;
+    z-index: 2;
 }
+
 
 .music-player h1{
     font-size: 20px;
@@ -135,11 +165,15 @@ nav .circle{
     animation: title-animation 15s linear infinite;
 }
 
-
 @keyframes title-animation{
     0% { transform: translate3d(0,0,0);}
     100% { transform: translate3d(-100%,0,0);}
 
+}
+
+#title,
+#artist{
+    font-size: 25px;
 }
 
 /* for homepage */
@@ -166,6 +200,11 @@ nav .circle{
     width: 35px;
     height: 35px;
     border-radius: 50%;
+}
+
+.decor{
+    width: 150px;
+    margin-top: -10px;
 }
 
 .music-home-page h1{
