@@ -4,7 +4,7 @@ Web music player with five songs in catalogue.
 
 ## Description
 
-Made for Hack Club's Stardance, this is a stylised web music player made using HTML and CSS including five pre-downloaded songs that includes a home page and a music player page. The home page allows for users to pick which songs they would like to play, whether by artist or by song title. The music player page allows for audio output, features basic text and image animations. 
+Made for Hack Club's Stardance, this is a stylised web music player made using HTML and CSS including five pre-downloaded songs. This project includes a home page and a music player page. The home page allows for users to pick which songs they would like to play, whether by artist or by song title. The music player page allows for audio output, features basic text and image animations. 
 
 <img src="SAMPLE_homepage.png" alt="Sample Home Page" width = "200"/><img src="SAMPLE_musicplayer.png" alt="Sample Music Player" width ="203"/>
 
