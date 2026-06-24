@@ -1,3 +1,9 @@
+/* 
+File Name: style.css
+Description: Styles and animations for Home Page and Music Player. 
+*/
+
+/* adding custom fonts */
 @font-face{
     font-family:'Merchant Copy';
     src:url('Merchant Copy.ttf') format('truetype');
@@ -14,6 +20,7 @@
     font-display: swap;
 }
 
+/* basic settings for the site */
 *{
     margin: 0;
     padding: 0;
@@ -21,6 +28,7 @@
     box-sizing: border-box;
 }
 
+/* settings for container (background) */
 .container{
     width: 100%;
     height: 100vh;
@@ -30,6 +38,120 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+/* for homepage */
+
+/* settings for home page appearance */
+.music-home-page{
+    background: #ffb6c1;
+    width: 400px;
+    height: 600px;
+    padding: 25px 35px;
+}
+
+.music-home-page p{
+    padding: 10px 5px;
+}
+
+/* title and decoration settings */
+.top{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.custom-font{ /*custom font for title*/
+    font-family: 'whimsy', sans-serif;
+    font-size: 35px;
+    color:#9e0652;
+}
+
+.decor{
+    width: 150px;
+    margin-top: -10px;
+}
+
+/* settings for artist images */
+.artist-img{
+    width: 64px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 5px 10px rgba(255,26, 26, 0.22);
+
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+/*setting artist images up in row*/
+.column{
+    float: left;
+    width: 25%;
+    padding: 5px;
+}
+.row::after{
+    content:"";
+    clear: both;
+    display:table;
+}
+
+/* hover animation*/
+.artist-img:hover{
+    transform: scale(1.15);
+}
+
+
+/* song buttons settings */
+.rectangle{
+    width: 330px;
+    height: 60px;
+
+    background-color: #EFFBB9;
+    border-radius:15px;
+    box-shadow: 0 5px 10px rgba(255,26, 26, 0.22);
+
+    padding: 20px;
+    margin-bottom: 10px;
+
+    display: flex;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+/* hover animation */
+.rectangle:hover{
+    background-color: #dde874;
+    color: white;
+}
+/* disc icon settings */
+.icon{
+    transform: scale(2);
+    color: #B0DFE5;
+
+    margin-left: 5px;
+    flex-shrink: 0;
+}
+
+/*song info text settings */
+.song-info{
+    display:flex;
+    flex-direction: column;
+
+    margin-left: 30px;
+}
+.song-title{
+    font-size: 25px;
+    margin-top:-17px;
+}
+.artist-name{
+    font-size: 15px;
+    margin-top: -19px;
+}
+
+
+
+/* for music player page */
+
+/* setting up music player container */
 .music-player{
     background: #ffe0e5;
     width: 400px;
@@ -38,7 +160,7 @@
     text-align: center;
 }
 
-/* exclusively for music player */
+/* navigation buttons */
 nav{
     display:flex;
     justify-content: space-between;
@@ -54,11 +176,13 @@ nav .circle{
     box-shadow: 0 5px 10px rgba(255,26, 26, 0.22);
 }
 
+/* container for the vinyl and album cover */
 .record-container{
     position: relative;
     margin: auto;
 }
 
+/* settings for the vinyl and its spinning animation */
 .song-img{
     width: 205px;
     margin-left: 90px;
@@ -84,6 +208,7 @@ nav .circle{
     }
 }
 
+/* settings for the album cover */
 .album-img{
     width:280px;
 
@@ -95,19 +220,8 @@ nav .circle{
     z-index: 2;
 }
 
-
-.music-player h1{
-    font-size: 20px;
-    font-weight: 400;
-    color: #333;
-    margin-top: 20px;
-}
-.music-player p{
-    font-size: 18px;
-    color: #333;
-}
-
-#progress{
+/* settings for progress bar */
+#progress{ /*progress bar appearance*/
     -webkit-appearance: none;
     width: 100%;
     height: 6px;
@@ -117,7 +231,7 @@ nav .circle{
     margin: 40px 0;
     margin-top: 35px;
 }
-#progress::-webkit-slider-thumb{
+#progress::-webkit-slider-thumb{ /*appearance of slider*/
     -webkit-appearance: none;
     background: #f53192;
     width: 30px;
@@ -126,6 +240,8 @@ nav .circle{
     border: 8px solid #fff;
     box-shadow:0 5px 5px rgba(255,26, 26, 0.22);
 }
+
+/* settings for controls (skip, previous, pause/play) */
 .controls{
     display: flex;
     justify-content: center;
@@ -151,6 +267,7 @@ nav .circle{
     color: #fff;
 }
 
+/* settings and animation for moving text */
 .moving-container{
     width: 100%;
     overflow: hidden;
@@ -160,7 +277,6 @@ nav .circle{
     display: inline-block;
     margin-top:35px;
     padding-left: 100%;
-    /* why is font size not changing? font-size: 25px; */
 
     animation: title-animation 15s linear infinite;
 }
@@ -176,122 +292,3 @@ nav .circle{
     font-size: 25px;
 }
 
-/* for homepage */
-.music-home-page{
-    background: #ffb6c1;
-    width: 400px;
-    height: 600px;
-    padding: 25px 35px;
-}
-
-.top{
-    display:flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
-
-.custom-font{
-    font-family: 'whimsy', sans-serif;
-    font-size: 35px;
-    color:#9e0652;
-}
-
-.pfp{
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-}
-
-.decor{
-    width: 150px;
-    margin-top: -10px;
-}
-
-.music-home-page h1{
-    font-size: 20px;
-    font-weight: 400;
-    color: #333;
-    margin-top: 10px;
-    margin-left: 2px;
-}
-
-.music-home-page p{
-    padding: 10px 5px;
-}
-
-.artist-img{
-    width: 64px;
-    border-radius: 50%;
-    border: 4px solid #fff;
-    box-shadow: 0 5px 10px rgba(255,26, 26, 0.22);
-
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
-.artist-img:hover{
-    transform: scale(1.15);
-}
-
-.column{
-    float: left;
-    width: 25%;
-    padding: 5px;
-}
-.row::after{
-    content:"";
-    clear: both;
-    display:table;
-}
-
-.rectangle{
-    width: 330px;
-    height: 60px;
-
-    background-color: #EFFBB9;
-    border-radius:15px;
-    box-shadow: 0 5px 10px rgba(255,26, 26, 0.22);
-
-    padding: 20px;
-    margin-bottom: 10px;
-
-    display: flex;
-    cursor: pointer;
-
-    transition: background-color 0.3s ease;
-}
-
-.rectangle:hover{
-    background-color: #dde874;
-    color: white;
-}
-
-.icon{
-    transform: scale(2);
-    color: #B0DFE5;
-
-    margin-left: 5px;
-    flex-shrink: 0;
-}
-
-.song-info{
-    display:flex;
-    flex-direction: column;
-
-    margin-left: 30px;
-}
-
-.song-title{
-    font-size: 25px;
-    margin-top:-17px;
-    /*margin-left: 30px;
-    margin-bottom: 3px;*/
-}
-.artist-name{
-    font-size: 15px;
-    margin-top: -19px;
-    /*
-    margin-left: 30px;
-    margin-bottom: 3px;
-    */
-}

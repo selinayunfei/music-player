@@ -1,3 +1,8 @@
+<!--
+    File Name: musicplayer.html
+    Description: Music player page, outputs audio.  
+-->
+
 <!DOCTYPE html>
 <html>
 
@@ -12,31 +17,38 @@
 <body>
     <div class="container">
         <div class="music-player">
+
+        <!-- navigation buttons at the top -->
         <nav>
-            <a href="homepage.html" class="button-link">
+            <a href="homepage.html" class="button-link"> <!-- back button: brings back to home page-->
                 <div class = "circle">
                     <i class="fa-solid fa-angle-left"></i>
                 </div>
             </a>
             <div class = "circle">
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-bars"></i> <!-- decorative purposes -->
             </div>
         </nav>
 
+        <!-- album cover with vinyl group -->
         <div class="record-conatiner">
-            <img src="media/vinyl.jpg" id="vinyl" class="song-img">
+            <img src="media/vinyl.jpg" id="vinyl" class="song-img"> <!-- setting picture as "vinyl"id for animation-->
             <img id="cover-file" class="album-img">
         </div>
 
-
+        <!-- moving text -->
         <div class="moving-container">
             <p class = "moving-title"><b id="title"></b>&emsp;&emsp;<span id="artist"></span></p>
         </div>
         
-        <audio id="song-file"></audio>
-
+        <!-- initial set-up of input/progress bar of the song -->
         <input type="range" value = "0" id = "progress">
 
+        <!-- audio -->
+
+        <audio id="song-file"></audio> <!-- access audio file -->
+
+        <!-- controls: previous, skip, play/pause -->
         <div class="controls">
             <div onclick="previousSong()">
                 <i class="fa-solid fa-backward"></i>
@@ -57,6 +69,7 @@
     </div>
 
     <script>
+    // List of songs, including title, artist, audio file, album cover file.
     const songs = [
     {
         title: "Drag Path",
@@ -94,15 +107,18 @@
     }
     ];
 
+    // defining elements
+
+    // elements for UI: progress bar, play/pause button, vinyl
     let progress = document.getElementById("progress");
-
-    let current = Number(localStorage.getItem("index")) || 0;
-
-    let song = document.getElementById("song-file");
-
     let ctrlIcon = document.getElementById("ctrlIcon");
     const disc = document.getElementById("vinyl");
 
+    // elements for function: establishing and keeping track of song
+    let current = Number(localStorage.getItem("index")) || 0;
+    let song = document.getElementById("song-file");
+
+    // defining function for accessing and loading elements of the song, including audio file, title, and artist
     function loadSong(){
         song.src=songs[current].file;
 
@@ -119,13 +135,26 @@
         ctrlIcon.innerHTML = '<i class="fa-solid fa-play"></i>';
     }
 
+    // loading the song
     loadSong();
 
+    // functions for progress bar
+
+    // setting up max & value of the progress bar
     song.onloadedmetadata = function(){
         progress.max = song.duration;
         progress.value = song.currentTime;
     }
+    // updating the progress bar
+    song.addEventListener("timeupdate", function(){
+        progress.value = song.currentTime;
+    });
+    // changing the song's play time based on input from progress bar
+    progress.oninput = function(){
+        song.currentTime = progress.value;
+    }
 
+    // function for switching between play and pause button 
     function playPause(){
         if(song.paused){
             song.play();
@@ -141,6 +170,7 @@
         }
     }
 
+    // function to switch to previous song
     function previousSong(){
         current--;
         
@@ -157,6 +187,7 @@
         '<i class="fa-solid fa-pause"></i>';
     }
 
+    // function to switch to next song
     function nextSong(){
         current++;
 
@@ -172,20 +203,8 @@
         '<i class="fa-solid fa-pause"></i>';
 
     }
-
-    song.addEventListener("timeupdate", function(){
-        progress.value = song.currentTime;
-    });
-
-    progress.oninput = function(){
-        song.currentTime = progress.value;
-    }
-
     </script>
 
 
-
-
 </body>
-
 </html>

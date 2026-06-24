@@ -1,3 +1,8 @@
+<!--
+    File Name: homepage.html
+    Description: Main landing page, for song selection. 
+-->
+
 <!DOCTYPE html>
 
 <html>
@@ -12,81 +17,81 @@
     <body>
         <div class="container">
             <div class="music-home-page">
+
+                <!-- title with stars decor -->
                 <div class="top">
                     <h2 class ="custom-font">home !</h2>
                     <img src="media/decor 1.png" class="decor">
-                    <!--<img src="media/hachiware.jpg" class="pfp">-->
                 </div>
 
-                <div class ="artists">
-                    <p> <b>artists</b> </p>
+                <!-- row of artists' profiles, opens to song-->
+                <p> <b>artists</b> </p>
 
-                    <div class = "row">
-                        <div class="column">
-                            <img src="media/artist profiles/21 pilots.png" class="artist-img" style="width:100%" onclick="openSong(0)">
-                        </div>
-                        <div class="column">
-                            <img src="media/artist profiles/yena.png" class="artist-img" style="width:100%" onclick="openSong(2)">
-                        </div>
-                        <div class="column">
-                            <img src="media/artist profiles/malcolm todd.png" class="artist-img" style="width:100%" onclick="openSong(4)">
-                        </div>
-                        <div class="column">
-                            <img src="media/artist profiles/itzy.png" class="artist-img" style="width:100%" onclick="openSong(3)">
-                        </div>
+                <div class = "row">
+                    <div class="column">
+                        <img src="media/artist profiles/21 pilots.png" class="artist-img" style="width:100%" onclick="openSong(0)">
                     </div>
-                    
-                    <p><b>playlist</b></p>
-
-
-                        <div class="rectangle" onclick="openSong(0)">
-                            <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
-
-                            <div class="song-info">
-                                <p class = "song-title">Drag path</p>
-                                <p class = "artist-name">Twenty One Pilots</p>
-                            </div>
-                        </div>
-
-                    <div class="rectangle" onclick="openSong(1)">
-                        <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
-                        <div class="song-info">
-                            <p class = "song-title">Let Down</p>
-                            <p class = "artist-name">Radiohead</p>
-                        </div>
+                    <div class="column">
+                        <img src="media/artist profiles/yena.png" class="artist-img" style="width:100%" onclick="openSong(2)">
                     </div>
-
-                    <div class="rectangle" onclick="openSong(2)">
-                        <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
-                        <div class="song-info">
-                            <p class = "song-title">Catch Catch</p>
-                            <p class = "artist-name">Yena</p>
-                        </div>
+                    <div class="column">
+                        <img src="media/artist profiles/malcolm todd.png" class="artist-img" style="width:100%" onclick="openSong(4)">
                     </div>
-
-                    <div class="rectangle" onclick="openSong(3)">
-                        <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
-                        <div class="song-info">
-                            <p class = "song-title">That's A No No</p>
-                            <p class = "artist-name">ITZY</p>
-                        </div>
+                    <div class="column">
+                        <img src="media/artist profiles/itzy.png" class="artist-img" style="width:100%" onclick="openSong(3)">
                     </div>
-
-                    <div class="rectangle" onclick="openSong(4)">
-                        <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
-                        <div class="song-info">
-                            <p class = "song-title">Bleed</p>
-                            <p class = "artist-name">Malcolm Todd, Omar Apollo</p>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
+                
+                <!-- list of songs (playlists), rectangles as buttons that opens to song-->
+                <p><b>playlist</b></p>
 
-        </div>
+                    <div class="rectangle" onclick="openSong(0)">
+                        <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
 
+                        <div class="song-info">
+                            <p class = "song-title">Drag path</p>
+                            <p class = "artist-name">Twenty One Pilots</p>
+                        </div>
+                    </div>
 
+                <div class="rectangle" onclick="openSong(1)">
+                    <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
+                    <div class="song-info">
+                        <p class = "song-title">Let Down</p>
+                        <p class = "artist-name">Radiohead</p>
+                    </div>
+                </div>
+
+                <div class="rectangle" onclick="openSong(2)">
+                    <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
+                    <div class="song-info">
+                        <p class = "song-title">Catch Catch</p>
+                        <p class = "artist-name">Yena</p>
+                    </div>
+                </div>
+
+                <div class="rectangle" onclick="openSong(3)">
+                    <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
+                    <div class="song-info">
+                        <p class = "song-title">That's A No No</p>
+                        <p class = "artist-name">ITZY</p>
+                    </div>
+                </div>
+
+                <div class="rectangle" onclick="openSong(4)">
+                    <div class ="icon"><i class="fa-solid fa-compact-disc"></i></div>
+                    <div class="song-info">
+                        <p class = "song-title">Bleed</p>
+                        <p class = "artist-name">Malcolm Todd, Omar Apollo</p>
+                    </div>
+                </div>
+
+            </div> <!--music-home-page end-->
+        </div> <!--container end-->
+
+    
     <script>
+        // function to open song, to musicplayer page
         function openSong(index){
             localStorage.setItem("index", index)
             
